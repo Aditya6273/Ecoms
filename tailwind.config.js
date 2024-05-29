@@ -1,12 +1,8 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./views/*.ejs"],
+  content: ["./views/**/*.ejs"],
   theme: {
-    extend: {
-      colors: {
-        customBlue: '#1E40AF',
-        customGreen: '#10B981',
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }
