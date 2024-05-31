@@ -1,7 +1,163 @@
-<%- include("./layouts/header")  %>
+<%- include("./layouts/header") %>
+<style>
+  .box1:hover,
+  .box2:hover,
+  .box3:hover {
+    box-shadow: 2px 2px 0 1px #899ab8;
+    filter: drop-shadow(2px 2px 0 1px #899ab8);
+    background: #223757;
+  }
+</style>
+<div class="profile w-full h-screen bg-zinc-900 flex text-white overflow-hidden">
+  <div class="left h-full lg:w-[25%] w-[4rem] bg-gray-950">
+    <div class="info lg:h-36 h-[6.5rem] w-full flex lg:justify-start justify-center items-center lg:p-3 gap-5">
+      <div class="profile-pic lg:h-28 lg:w-28 h-10 w-10 rounded-full bg-zinc-700 overflow-hidden">
+        <img
+          class="h-full w-full object-cover"
+          src="https://th.bing.com/th/id/OIP.r6ZlFGWZmzdrK5xxzjgrAgHaE8?w=280&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="username hidden lg:block">
+        <h1 class="text-md font-medium">User.name</h1>
+        <h1 class="text-sm font-normal">@User.username</h1>
+        <h1 class="text-xs mt-1 font-normal">Date Created Or Updated</h1>
+      </div>
+    </div>
+    <div class="nav-links h-1/2 w-full flex items-center lg:p-7 lg:py-2 px-2">
+      <ul class="flex justify-between w-full h-full flex-col">
+        <div class="flex item-1 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
+          <i class="ri-home-2-fill text-3xl"></i>
+          <li>
+            <a href="#" class="text-sm font-semibold hidden lg:inline-block">Home</a>
+          </li>
+        </div>
+        <div class="item-2 flex items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
+          <i class="ri-shopping-bag-fill text-3xl"></i>
+          <li>
+            <a href="#" class="text-sm font-semibold hidden lg:inline-block">Shop</a>
+          </li>
+        </div>
+        <div class="flex item-3 items-center justify-center gap-3 w-fit py-[2px] pl-2 pr-5 rounded-full lg:hover:bg-gray-900 cursor-pointer">
+          <i class="ri-fire-fill text-3xl"></i>
+          <li>
+            <a href="#" class="text-sm font-semibold hidden lg:inline-block">Trending</a>
+          </li>
+        </div>
+        <div class="flex item-4 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full lg:hover:bg-gray-900">
+          <i class="ri-history-fill text-3xl"></i>
+          <li>
+            <a href="#" class="text-sm font-semibold hidden lg:inline-block">Order History</a>
+          </li>
+        </div>
+        <div class="flex item-5 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
+          <i class="ri-shopping-cart-2-fill text-3xl"></i>
+          <li>
+            <a href="#" class="text-sm font-semibold hidden lg:inline-block">My Cart</a>
+          </li>
+        </div>
+        <div class="flex item-6 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
+          <i class="ri-account-circle-fill text-3xl"></i>
+          <li>
+            <a href="#" class="text-sm font-semibold hidden lg:inline-block">My Personal Info</a>
+          </li>
+        </div>
+        <div class="flex item-7 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
+          <i class="ri-settings-3-fill text-3xl"></i>
+          <li>
+            <a href="#" class="text-sm font-semibold hidden lg:inline-block">Settings</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <div class="h-56 w-full relative overflow-hidden p-5 hidden lg:block">
+      <div class="heading">
+        <h1 class="text-2xl font-semibold">Order and Details</h1>
+      </div>
+      <div class="h-72 w-full flex flex-wrap lg:justify-between justify-start pt-4">
+        <div class="box1 h-24 w-24 bg-gray-800 rounded-md flex justify-center items-center flex-col-reverse cursor-pointer">
+          <h1 class="text-3xl font-medium">20+</h1>
+          <h1>Orders</h1>
+        </div>
+        <div class="box2 h-24 w-24 bg-gray-800 rounded-md flex justify-center items-center flex-col-reverse shadow-gray-600 cursor-pointer">
+          <h1 class="text-3xl font-medium">300</h1>
+          <h1>Credits</h1>
+        </div>
+        <div class="box3 h-24 w-24 bg-gray-800 rounded-md flex justify-center items-center flex-col-reverse shadow-gray-600 cursor-pointer">
+          <h1 class="text-3xl font-medium">00</h1>
+          <h1>Tips</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="profile w-full h-screen bg-zinc-800"></div>
-
-
-
-<%- include("./layouts/footer")  %>
+  <div class="right h-full lg:w-[75%] w-[90%] bg-gray-800">
+    <div class="navigation w-full h-24 flex justify-between p-5 items-center">
+      <div class="logo w-[20%]">
+        <h1 class="text-3xl font-bold tracking-wider hover:text-blue-300 cursor-pointer">Ecoms</h1>
+      </div>
+      <div class="nav-icons w-[80%] flex relative right-2 mt-2 lg:m-0 justify-end items-center h-full">
+        <ul class="flex lg:gap-10 md:gap-7 gap-5">
+          <a href="#"><i class="ri-question-fill text-2xl hover:text-blue-300"></i></a>
+          <a href="/users/cart"><i class="ri-shopping-cart-2-fill text-2xl hover:text-blue-300"></i></a>
+          <a href="/users/logout"><i class="ri-logout-box-r-line text-2xl hover:text-red-500"></i></a>
+        </ul>
+      </div>
+    </div>
+    <div class="hero h-auto w-full pb-0 flex xl:justify-start lg:justify-between lg:flex-row md:flex-row flex-col relative">
+      <div class="Currentorder h-auto lg:w-[34rem] md:w-fit lg:mt-2 lg:ml-5 rounded-md lg:p-7 p-2 mr-2 lg:pt-4 py-0 flex flex-col gap-2">
+        <h1 class="lg:text-3xl md:text-xl text-md font-semibold">Current Orders</h1>
+        <div class="md:w-full w-fit h-[5rem] bg-gray-900 flex p-1 px-3 rounded-md overflow-hidden gap-5">
+          <div class="img-holder w-[5rem] h-full rounded-md overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://th.bing.com/th/id/OIP.WgzB3LIly7Fs6n-SnP_etgHaIz?w=180&h=214&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Order Image">
+          </div>
+          <div class="item-Title flex flex-col justify-center">
+            <h1 class="font-semibold text-sm">Headphones Model 75703392</h1>
+            <p class="text-xs">$800</p>
+            <h1 class="text-sm">
+              Quantity:
+              <span class="h-5 w-7 bg-gray-800 inline-block text-center rounded-sm">1</span>
+            </h1>
+          </div>
+        </div>
+        <div class="md:w-full w-fit h-[5rem] bg-gray-900 flex p-1 px-3 rounded-md overflow-hidden gap-5">
+          <div class="img-holder w-[5rem] h-full rounded-md overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://th.bing.com/th/id/OIP.WgzB3LIly7Fs6n-SnP_etgHaIz?w=180&h=214&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Order Image">
+          </div>
+          <div class="item-Title flex flex-col justify-center">
+            <h1 class="font-semibold text-sm">Headphones Model 75703392</h1>
+            <p class="text-xs">$800</p>
+            <h1 class="text-sm">
+              Quantity:
+              <span class="h-5 w-7 bg-gray-800 inline-block text-center rounded-sm">1</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="tracker lg:h-52 h-auto w-[34rem] lg:mt-2 lg:ml-5 rounded-md mr-5 lg:pt-4 lg:px-7 px-2 mt-2 md:mt-0">
+        <div class="head flex flex-col lg:flex-row lg:gap-x-20 lg:gap-3 gap-1">
+          <div class="flex flex-col md:gap-3 gap-1">
+            <h1 class="lg:text-3xl md:text-xl text-md font-semibold">Track Your Orders</h1>
+            <a href="#" class="py-2 px-3 bg-gray-900 hover:bg-sky-600 w-fit rounded-md">Track your Latest order</a>
+          </div>
+          <div class="flex flex-col md:gap-3 gap-1">
+            <h1 class="lg:text-3xl md:text-xl text-md font-semibold">View Past Orders</h1>
+            <a href="#" class="py-2 px-3 bg-gray-900 hover:bg-sky-600 w-fit rounded-md">View Past Orders</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="lg:text-2xl text-xl lg:mt-2 mt-2 font-semibold ml-5 hidden lg:block" style="margin-left: 30px">Stores Location</h1>
+    <div class="shop-location lg:flex justify-start items-center w-full px-5 mt-2 hidden">
+      <iframe
+        class="rounded-lg w-full lg:h-60 md:h-auto"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15080.409641071437!2d73.00048424866657!3d19.103162713709377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c0da9e93097f%3A0xd54c1cc7981cf314!2sKopar%20Khairane%2C%20Navi%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717003813112!5m2!1sen!2sin"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</div>
+<%- include("./layouts/footer") %>

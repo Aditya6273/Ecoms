@@ -1,10 +1,17 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
+const {
+  restrictUnauthorizedUser,
+  UserLogOutFunc,
+} = require("../controllers/userLoginSignupController");
 
+router.get("/", restrictUnauthorizedUser, (req, res) => {
+  res.render("profile");
+});
+router.get("/logout", UserLogOutFunc);
 
-router.get("/",(req,res)=>{
-res.render("profile")
+router.get("/cart", (req, res) => {
+  res.send("hello from cart");
+});
 
-})
-
-module.exports = router
+module.exports = router;
