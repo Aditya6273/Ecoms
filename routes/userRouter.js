@@ -1,16 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const {
-  restrictUnauthorizedUser,
-  UserLogOutFunc,
-} = require("../controllers/userLoginSignupController");
+// const userModel = require("../models/userModel");
+const {userprofile}= require('../controllers/productscontroller')
+const { restrictUnauthorizedUser} = require("../controllers/userLoginSignupController");
+router.get("/profile/:id", restrictUnauthorizedUser, userprofile);
 
-router.get("/", restrictUnauthorizedUser, (req, res) => {
-  res.render("profile");
+
+// Logout route
+
+router.get("/logout",(req, res) => {
+  res.clearCookie("access_token")
+  res.redirect("/login")
 });
-router.get("/logout", UserLogOutFunc);
 
-router.get("/cart", (req, res) => {
+// Cart route
+router.get("/carts", restrictUnauthorizedUser,(req, res) => {
+  console.log("hello");
   res.send("hello from cart");
 });
 

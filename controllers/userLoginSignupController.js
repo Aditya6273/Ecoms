@@ -18,7 +18,7 @@ const UserSignUp = async (req, res) => {
       password: hash,
     });
 
-    const token = jwt.sign({ email }, secret, {
+    const token = jwt.sign({ email , name ,username,contact ,userid:user._id }, secret, {
       expiresIn: "1h",
     });
 
@@ -28,7 +28,7 @@ const UserSignUp = async (req, res) => {
     });
 
     // Redirect the user to the "/users" route
-    res.redirect("/users");
+    res.redirect(`/users/profile/${user._id}`);
   } catch (error) {
     console.error("Error creating user:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -36,7 +36,7 @@ const UserSignUp = async (req, res) => {
 };
 
 const UserLogin = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, username, name, contact } = req.body;
 
   try {
     const user = await userModel.findOne({ email });
@@ -45,16 +45,18 @@ const UserLogin = async (req, res) => {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    const token = jwt.sign({ userId: user._id }, secret, {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { email, userId: user._id, username, name, contact },
+      secret,
+      { expiresIn: "1h" }
+    );
 
     res.cookie("access_token", token, {
       httpOnly: true,
-      maxAge: 3600000,
+      maxAge: 3600000, // 1 hour
     });
 
-    res.status(200).redirect("/users");
+    res.status(200).redirect(`/users/profile/${user._id}`);
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -77,9 +79,21 @@ const restrictUnauthorizedUser = (req, res, next) => {
   }
 };
 const UserLogOutFunc = (req, res) => {
-    res.clearCookie("access_token");
-  
-    res.status(200).redirect("/login")
-  };
+  try {
+    console.log("Cookies before clear:", req.cookies);
+    
+    res.clearCookie("access_token", { path: '/', httpOnly: true, secure: true });
+    
+    console.log("Cookies after clear:", req.cookies);
+    
+    console.log("token is deleted");
+    
+    res.status(200).redirect("/login");
+  } catch (error) {
+    console.error("Error during logout:", error);
+    res.status(500).send("An error occurred during logout.");
+  }
+};
+
   
 module.exports = { UserSignUp, UserLogin , restrictUnauthorizedUser,UserLogOutFunc};

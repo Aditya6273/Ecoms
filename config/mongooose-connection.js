@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
-const env = require('dotenv')
+const env = require('dotenv').config()
 const mongo = process.env.MONGO_URI
 mongoose
-  .connect(`mongodb://localhost:27017/ecoms`)
+  .connect(`${mongo}/ecoms`)
   .then(() => {
     console.log("Connected to database");
   })
   .catch((err) => {
-    console.log("Database not connected due to some error");
+    console.log(err);
   });
   
   module.exports = mongoose.connection

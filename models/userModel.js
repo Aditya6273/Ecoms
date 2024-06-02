@@ -35,6 +35,10 @@ const userSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "order",
   },
+  ordered:{
+    type:Array,
+    default:[]
+  },
   is_active: {
     type: Boolean,
     default: true,

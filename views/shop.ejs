@@ -1,0 +1,58 @@
+<%- include('./layouts/header') %>
+<style>
+  .show {
+    left: 0;
+    clip-path: circle(141.4% at 0 0);
+  }
+  .links {
+    transition: 0.8s all ease-in-out;
+  }
+  .shownav{
+    left:0; 
+    top:20%;
+    clip-path: circle(0.0% at 0 0);
+
+  }
+  .nav2{
+    clip-path: circle(141.4% at 0 0);
+
+    transition: 0.8s all ease-in-out;
+
+    
+  }
+</style>
+<div class="h-screen w-full bg-gray-900 text-white">
+<%- include('./layouts/navbar') %>
+  <div class="searchandproductsnav h-[10%] w-full bg-gray-950 flex items-center z-40">
+    <div
+      class="search z-40 h-full md:w-[50%] w-[100%] px-2 flex items-center justify-center relative gap-2"
+    >
+      <!-- <label for="">Search products</label> -->
+      <input
+        type="search"
+        name="search"
+        id="seacrh"
+        class="w-full h-10 rounded-full px-5 bg-gray-900 outline-none"
+        placeholder="Search For Products"
+      />
+      <a href="" class=""
+        ><i
+          class="ri-search-line text-gray-900 text-2xl p-2 rounded-full bg-blue-700"
+        ></i
+      ></a>
+    </div>
+    <div class="shop-list md:w-[50%] w-0 h-full flex items-center gap-5 justify-end lg:px-20 px-3
+    z-30">
+      <ul class="flex nav2 gap-7 bg-gray-950 md:relative absolute md:flex-row md:-top-0 top-[20%] flex-col z-30 , w-full md:w-full items-center md:justify-start h-96 md:h-full justify-center pb-4 md:pb-0 md:right-0 -left-[100%] md:left-0 " >
+        <a href="/clothing" class="text-md font-normal">Clothing</a>
+        <a href="/grocery" class="text-md font-normal">Grocery</a>
+        <a href="/category" class="text-md font-normal">Category</a>
+        <a href="/electronics" class="text-md font-normal">Electronics</a>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+<script src="/js/script.js"></script>
+
+<%- include('./layouts/footer') %>

@@ -1,0 +1,32 @@
+<div
+class="navigation md:bg-gray-900 bg-gray-950 h-[10%] w-full flex justify-between items-center md:px-20 px-5 z-40"
+>
+<div class="logo flex items-center">
+  <h1 class="text-3xl font-bold tracking-wide">Ecoms</h1>
+</div>
+<div class="nav-links flex">
+  <ul
+    class="z-50 links gap-10 items-center flex md:flex-row flex-col md:relative absolute top-[10%] md:p-0 p-10 md:bg-gray-900 bg-gray-950 h-auto md:h-auto md:w-auto w-[50%] -left-[100%] md:left-0"
+  >
+    <a href="" class="md:text-md text-lg font-semibold tracking-wide"
+      >Home</a
+    >
+    <a href="" class="md:text-md text-lg font-semibold tracking-wide focus"
+      >Shop</a
+    >
+    <a
+      href="/users/<%= user._id %>"
+      class="md:text-md text-lg font-semibold tracking-wide"
+      >Profile</a
+    >
+  </ul>
+  <div class="flex items-center h-full mt-2 gap-4">
+    <i
+      class="burger ri-menu-line md:hidden block text-3xl font-semibold top-0 relative"
+    ></i>
+    <i
+      class="burger2 ri-menu-fold-fill md:hidden block text-3xl font-semibold top-0 relative"
+    ></i>
+  </div>
+</div>
+</div>

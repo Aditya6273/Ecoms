@@ -19,9 +19,9 @@
         />
       </div>
       <div class="username hidden lg:block">
-        <h1 class="text-md font-medium">User.name</h1>
-        <h1 class="text-sm font-normal">@User.username</h1>
-        <h1 class="text-xs mt-1 font-normal">Date Created Or Updated</h1>
+        <h1 class="text-md font-medium"><%= user.name  %></h1>
+        <h1 class="text-sm font-normal">@<%= user.username  %></h1>
+        <h1 class="text-xs mt-1 font-normal"><%= user.email %></h1>
       </div>
     </div>
     <div class="nav-links h-1/2 w-full flex items-center lg:p-7 lg:py-2 px-2">
@@ -35,16 +35,16 @@
         <div class="item-2 flex items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
           <i class="ri-shopping-bag-fill text-3xl"></i>
           <li>
-            <a href="#" class="text-sm font-semibold hidden lg:inline-block">Shop</a>
+            <a href="/products/shop" class="text-sm font-semibold hidden lg:inline-block">Shop</a>
           </li>
         </div>
-        <div class="flex item-3 items-center justify-center gap-3 w-fit py-[2px] pl-2 pr-5 rounded-full lg:hover:bg-gray-900 cursor-pointer">
+        <div class="flex item-3 items-center justify-center gap-3 w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900 cursor-pointer">
           <i class="ri-fire-fill text-3xl"></i>
           <li>
             <a href="#" class="text-sm font-semibold hidden lg:inline-block">Trending</a>
           </li>
         </div>
-        <div class="flex item-4 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full lg:hover:bg-gray-900">
+        <div class="flex item-4 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
           <i class="ri-history-fill text-3xl"></i>
           <li>
             <a href="#" class="text-sm font-semibold hidden lg:inline-block">Order History</a>
@@ -70,7 +70,7 @@
         </div>
       </ul>
     </div>
-    <div class="h-56 w-full relative overflow-hidden p-5 hidden lg:block">
+    <!-- <div class="h-56 w-full relative overflow-hidden p-5 hidden lg:block">
       <div class="heading">
         <h1 class="text-2xl font-semibold">Order and Details</h1>
       </div>
@@ -88,7 +88,7 @@
           <h1>Tips</h1>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="right h-full lg:w-[75%] w-[90%] bg-gray-800">
@@ -99,7 +99,7 @@
       <div class="nav-icons w-[80%] flex relative right-2 mt-2 lg:m-0 justify-end items-center h-full">
         <ul class="flex lg:gap-10 md:gap-7 gap-5">
           <a href="#"><i class="ri-question-fill text-2xl hover:text-blue-300"></i></a>
-          <a href="/users/cart"><i class="ri-shopping-cart-2-fill text-2xl hover:text-blue-300"></i></a>
+          <a href="/users/carts"><i class="ri-shopping-cart-2-fill text-2xl hover:text-blue-300"></i></a>
           <a href="/users/logout"><i class="ri-logout-box-r-line text-2xl hover:text-red-500"></i></a>
         </ul>
       </div>
@@ -147,10 +147,10 @@
         </div>
       </div>
     </div>
-    <h1 class="lg:text-2xl text-xl lg:mt-2 mt-2 font-semibold ml-5 hidden lg:block" style="margin-left: 30px">Stores Location</h1>
-    <div class="shop-location lg:flex justify-start items-center w-full px-5 mt-2 hidden">
+    <h1 class="lg:text-2xl text-xl lg:mt-2 mt-2 font-semibold ml-5" style="margin-left: 30px">Stores Location</h1>
+    <div class="shop-location lg:flex justify-start items-center w-full md:px-5 px-3 mt-2">
       <iframe
-        class="rounded-lg w-full lg:h-60 md:h-auto"
+        class="rounded-lg md:w-full w-[95%] lg:h-60 md:h-[34rem] h-60"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15080.409641071437!2d73.00048424866657!3d19.103162713709377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c0da9e93097f%3A0xd54c1cc7981cf314!2sKopar%20Khairane%2C%20Navi%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717003813112!5m2!1sen!2sin"
         style="border: 0"
         allowfullscreen=""
