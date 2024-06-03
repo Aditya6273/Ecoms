@@ -7,23 +7,39 @@
   .links {
     transition: 0.8s all ease-in-out;
   }
-  .shownav{
-    left:0; 
-    top:20%;
-    clip-path: circle(0.0% at 0 0);
-
+  .shownav {
+    left: 0;
+    top: 20%;
+    clip-path: circle(0% at 0 0);
   }
-  .nav2{
+  .nav2 {
     clip-path: circle(141.4% at 0 0);
 
     transition: 0.8s all ease-in-out;
-
-    
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .img {
+    background-image: url(/assets/images/shop-background.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+  }
+  .toggle-filter{
+    width:24rem;
+  }
+  .filter-show{
+    transition: all .5s ease-in ;
   }
 </style>
+<div class="bg-gray-950 h-screen w-0 right-0 fixed z-50 filter-show"></div>
 <div class="h-screen w-full bg-gray-900 text-white">
-<%- include('./layouts/navbar') %>
-  <div class="searchandproductsnav h-[10%] w-full bg-gray-950 flex items-center z-40">
+  <%- include('./layouts/navbar') %>
+  <div
+    class="searchandproductsnav h-[10%] w-full bg-gray-950 flex items-center z-40"
+  >
     <div
       class="search z-40 h-full md:w-[50%] w-[100%] px-2 flex items-center justify-center relative gap-2"
     >
@@ -41,18 +57,69 @@
         ></i
       ></a>
     </div>
-    <div class="shop-list md:w-[50%] w-0 h-full flex items-center gap-5 justify-end lg:px-20 px-3
-    z-30">
-      <ul class="flex nav2 gap-7 bg-gray-950 md:relative absolute md:flex-row md:-top-0 top-[20%] flex-col z-30 , w-full md:w-full items-center md:justify-start h-96 md:h-full justify-center pb-4 md:pb-0 md:right-0 -left-[100%] md:left-0 " >
+    <div
+      class="shop-list md:w-[50%] w-0 h-full flex items-center gap-5 justify-end lg:px-20 px-3 z-30"
+    >
+      <ul
+        class="flex nav2 gap-7 bg-gray-950 md:relative absolute md:flex-row md:-top-0 top-[20%] flex-col z-30 , w-full md:w-full items-center md:justify-start h-96 md:h-full justify-center pb-4 md:pb-0 md:right-0 -left-[100%] md:left-0"
+        >
+        <a href="#" class="filter-btn text-md font-normal cursor-pointer">Filter</a>
         <a href="/clothing" class="text-md font-normal">Clothing</a>
         <a href="/grocery" class="text-md font-normal">Grocery</a>
-        <a href="/category" class="text-md font-normal">Category</a>
         <a href="/electronics" class="text-md font-normal">Electronics</a>
-        
       </ul>
     </div>
   </div>
+  <div class="shop-background min-h-screen w-full">
+    <div
+      class="bg-image h-[50vh] w-full bg-zinc-800 img flex flex-col justify-center items-center relative"
+    >
+      <h1 class="text-5xl font-semibold z-10">Shop</h1>
+      <p class="z-10 text-zinc-400 text-lg">Cheapest price || Best Quality</p>
+      <div
+        class="overlay h-[50vh] w-full bg-black opacity-60 absolute z-0"
+      ></div>
+    </div>
+    <div class="products-container bg-gray-900 min-h-screen w-full md:p-10 p-5">
+      <div class="heading text-5xl font-semibold leading-none">
+        <h1 class="text-5xl font-semibold leading-none">Products and Goods</h1>
+      </div>
+      <div class="card-container h-auto w-full mt-5 flex justify-center">
+        <div
+          class="cards h-full w-full flex flex-wrap lg:gap-x-10 gap-x-4 gap-y-5"
+        >
+          <div
+            class="card h-[22rem] xl:w-60 md:w-56 w-full bg-gray-800 rounded-md overflow-hidden px-2 pt-2 relative"
+          >
+            <div class="img-holder h-44 w-full overflow-hidden flex rounded">
+              <img
+                src="/assets/images/tomatoes-removebg-preview.png"
+                class="h-44 w-full bg-white object-contain"
+                alt=""
+              />
+            </div>
+            <div class="product-name w-full p-1 pb-0">
+              <h1 class="text-lg font-semibold">Fresh Red Tomatoes</h1>
+            </div>
+            <div class="product-price w-full px-1 pb-0">
+              <h1 class="font-semibold">Price : $30</h1>
+            </div>
+            <div
+              class="product-add-to-cart w-full p-2 bg-blue-600 hover:bg-blue-700 text-center relative my-2 rounded cursr-pointer"
+            >
+              <h1>Add to Cart</h1>
+            </div>
+            <div
+              class="product-add-to-cart w-full p-2 bg-green-700 hover:bg-green-800 text-center relative rounded cursor-pointer"
+            >
+              <h1>Buy Now</h1>
+            </div>
+          </div>
+       
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<script src="/js/script.js"></script>
 
 <%- include('./layouts/footer') %>
