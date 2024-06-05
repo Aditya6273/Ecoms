@@ -8,4 +8,6 @@ const user = await userModel.findOne({email:req.user.email})
 
 res.render("shop" ,{user})
 })
+
+
 module.exports = router

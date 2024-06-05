@@ -18,3 +18,15 @@ const show = document.querySelector(".filter-show")
 filter.addEventListener("click",()=>{
     show.classList.toggle("toggle-filter")
 })
+
+
+const cross = document.querySelector(".cross")
+
+cross.addEventListener("click",()=>{
+    show.classList.remove("toggle-filter")
+})
+document.getElementById('range').addEventListener('input', function() {
+    document.getElementById('priceValue').textContent = this.value;
+  });
+
+ 

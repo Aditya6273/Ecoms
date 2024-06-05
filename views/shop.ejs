@@ -33,8 +33,130 @@
   .filter-show{
     transition: all .5s ease-in ;
   }
+  .price-filter {
+    margin-top: 20px;
+  }
+  input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 15px 0;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: blue;
+    border-radius: 1.3px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+  }
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animation: 0.2s;
+    background: blue;
+    border-radius: 1.3px;
+  }
+  input[type="range"]::-moz-range-thumb {
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: blue;
+    border-radius: 2.6px;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: blue;
+    border-radius: 2.6px;
+  }
+  input[type="range"]::-ms-thumb {
+    border: 1px solid #000000;
+    height: 30px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: 0px;
+  }
+  input[type="range"]:focus::-ms-fill-lower {
+    background: blue;
+  }
+  input[type="range"]:focus::-ms-fill-upper {
+    background: blue;}
 </style>
-<div class="bg-gray-950 h-screen w-0 right-0 fixed z-50 filter-show"></div>
+<div class="bg-gray-950 h-screen w-0 right-0 fixed z-[100] filter-show">
+  <div class="h-[10%] w-full px-7 flex items-center">
+    <i class="cross ri-close-large-fill text-white text-xl font-semibold p-2 px-3 rounded-full bg-red-500 hover:bg-red-600 cursor-pointer"></i>
+  </div>
+  <div class="h-[90%] w-full p-5">
+    <div class="price-filter">
+      <label for="range" class="text-white text-xl font-semibold ">Select Price Range:</label>
+      <input type="range" id="range" name="range" min="500" max="10000" step="100">
+      <div class="text-white">Selected Price: $ <span id="priceValue">500</span></div>
+    </div>
+    <div class="category mt-5 p-4 bg-gray-900 rounded-lg text-white">
+      <label class="text-white text-lg mb-2 block">Select Category:</label>
+      <div class="flex">
+        <input type="radio" name="category" id="mobile" value="Mobile" class="">
+        <label for="mobile" class="p-2 mb-1 rounded-lg cursor-pointer ">New</label>
+      </div>
+      <div class="flex">
+        <input type="radio" name="category" id="mobile" value="Mobile" class="">
+        <label for="mobile" class="p-2 mb-1 rounded-lg cursor-pointer ">Sale</label>
+      </div>
+   
+  </div>
+    <div class="category mt-5 p-4 bg-gray-900 rounded-lg text-white">
+      <label class="text-white text-lg mb-2 block">Select Category:</label>
+      <div class="flex">
+        <input type="radio" name="category" id="mobile" value="Mobile" class="">
+        <label for="mobile" class="p-2 mb-1 rounded-lg cursor-pointer ">Mobile</label>
+      </div>
+      <div class="flex">
+        <input type="radio" name="category" id="boys-wear" value="Boys Wear" class="">
+        <label for="boys-wear" class="p-2 mb-1 rounded-lg cursor-pointer ">Boys Wear</label>
+      </div>
+      <div class="flex">
+        <input type="radio" name="category" id="girls-wear" value="Girls Wear" class="">
+        <label for="girls-wear" class="p-2 mb-1 rounded-lg cursor-pointer ">Girls Wear</label>
+      </div>
+      <div class="flex items-center">
+        <input type="radio" name="category" id="computers" value="Computers" class="">
+        <label for="computers" class="p-2 mb-1 rounded-lg cursor-pointer ">Computers</label>
+      </div>
+  </div>
+  <div class="apply-btn text-center text-white h-auto w-full mt-5">
+    <a href="" class="px-3 w-full text-center py-2 bg-green-500 block rounded-md hover:bg-green-600">Apply Changes</a>
+  </div>
+</div>
+
+  </div>
+</div>
 <div class="h-screen w-full bg-gray-900 text-white">
   <%- include('./layouts/navbar') %>
   <div
