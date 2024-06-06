@@ -651,6 +651,14 @@ video {
   margin-top: 1.25rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .block {
   display: block;
 }
@@ -896,6 +904,11 @@ video {
 .border-zinc-800 {
   --tw-border-opacity: 1;
   border-color: rgb(39 39 42 / var(--tw-border-opacity));
+}
+
+.border-gray-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(31 41 55 / var(--tw-border-opacity));
 }
 
 .bg-black {

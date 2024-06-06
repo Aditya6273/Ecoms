@@ -36,26 +36,38 @@ const UserSignUp = async (req, res) => {
 };
 
 const UserLogin = async (req, res) => {
-  const { email, password, username, name, contact } = req.body;
+  const { email, password } = req.body;
 
   try {
+    // Find the user by email
     const user = await userModel.findOne({ email });
-
+    
+    // admin if a specific user with a known ID exists
+    const admin = await userModel.findById("66606b906985e0867bee5bba");
+    if (admin) {
+      // Update the role to "Admin" if necessary
+      admin.role = "Admin";
+      await admin.save();
+    }
+    // Validate user and password
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
+    // Generate JWT token
     const token = jwt.sign(
-      { email, userId: user._id, username, name, contact },
-      secret,
+      { email: user.email, userId: user._id, username: user.username, name: user.name, contact: user.contact },
+    secret,
       { expiresIn: "1h" }
     );
 
+    // Set cookie with the token
     res.cookie("access_token", token, {
       httpOnly: true,
       maxAge: 3600000, // 1 hour
     });
 
+    // Redirect to user profile
     res.status(200).redirect(`/users/profile/${user._id}`);
   } catch (error) {
     console.error("Error logging in:", error);
@@ -94,6 +106,9 @@ const UserLogOutFunc = (req, res) => {
     res.status(500).send("An error occurred during logout.");
   }
 };
-
+const adminRegistration = (req,res)=>{
+const {email,password} = req.body
+const admin = req.body
+}
   
 module.exports = { UserSignUp, UserLogin , restrictUnauthorizedUser,UserLogOutFunc};

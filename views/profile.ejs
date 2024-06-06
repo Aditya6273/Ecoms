@@ -59,10 +59,17 @@
           </li>
         </div>
         <div class="flex item-6 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
-          <i class="ri-account-circle-fill text-3xl"></i>
-          <li>
-            <a href="#" class="text-sm font-semibold hidden lg:inline-block">My Personal Info</a>
-          </li>
+          <% if (user.role !== "Admin") { %>
+            <i class="ri-account-circle-fill text-3xl"></i>
+            <li>
+              <a href="#" class="text-sm font-semibold hidden lg:inline-block">My Personal Info</a>
+            </li>
+          <% } else { %>
+            <i class="ri-account-circle-fill text-3xl"></i>
+            <li>
+              <a href="/admin/login" class="text-sm font-semibold hidden lg:inline-block ">Admin Panel</a>
+            </li>
+          <% } %>
         </div>
         <div class="flex item-7 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
           <i class="ri-settings-3-fill text-3xl"></i>
