@@ -65,7 +65,7 @@ const adminLogin = async (req, res) => {
     // Redirect to admin profile
     res.status(200).redirect(`/admin/adminpanel`);
   } catch (error) {
-    console.error("Error logging in:", error);
+    console.error("Error logging in:", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -73,16 +73,18 @@ const restrictUnauthorizedAdmin = (req, res, next) => {
   const token = req.cookies.Admin_token;
 
   if (!token) {
-    return res.redirect("/admin/register");
+    return res.redirect("/admin/login");
   }
 
   try {
+    const {email } = req.body
     const decoded = jwt.verify(token, secret);
+    const admin = adminModel.findOne({email})
     req.admin = decoded;
     next();
   } catch (error) {
-    console.error("Error verifying token:", error);
-    return res.redirect("/admin/register");
+    console.error("Error verifying token:", error.message);
+    return res.redirect("/admin/login");
   }
 };
 

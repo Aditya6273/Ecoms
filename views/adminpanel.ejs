@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello from admin</h1>
-</body>
-</html>
+<%- include('./layouts/header') %>
+<style>
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+<div class="h-screen w-full bg-gray-900 text-white">
+  <%- include('./layouts/navbar') %>
+  <div class="h-full w-full flex">
+    <%- include('./layouts/AdminNav') %>
+    <div class="right w-[80%]  lg:min-h-full relative  bg-gray-950">
+      <div class="heading w-full md:h-[10%] h-[5%] lg:p-10 p-3 lg:mb-10 mb-5">
+        <h1 class="lg:text-5xl text-2xl font-semibold leading-none">Welcome To Admin Panel</h1>
+      </div>
+      <div class="boxes flex w-full h-[80%] overflow-y-auto flex-wrap gap-x-5 gap-5 justify-start md:px-10 px-4 ">
+        <div class="box1 w-[30rem] h-56 bg-zinc-600"></div>
+        <div class="box2 w-[30rem] h-56 bg-zinc-600"></div>
+        <div class="box3 w-[30rem] h-56 bg-zinc-600"></div>
+        <div class="box4 w-[30rem] h-56 bg-zinc-600"></div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./layouts/footer') %>

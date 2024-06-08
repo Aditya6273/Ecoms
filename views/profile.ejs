@@ -27,7 +27,7 @@
     <div class="nav-links h-1/2 w-full flex items-center lg:p-7 lg:py-2 px-2">
       <ul class="flex justify-between w-full h-full flex-col">
         <div class="flex item-1 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
-          <i class="ri-home-2-fill text-3xl"></i>
+          <a href=""><i class="ri-home-2-fill text-3xl"></i></a>
           <li>
             <a href="#" class="text-sm font-semibold hidden lg:inline-block">Home</a>
           </li>
@@ -41,33 +41,33 @@
           </li>
         </div>
         <div class="flex item-3 items-center justify-center gap-3 w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900 cursor-pointer">
-          <i class="ri-fire-fill text-3xl"></i>
+          <a href=""><i class="ri-fire-fill text-3xl"></i></a>
           <li>
             <a href="#" class="text-sm font-semibold hidden lg:inline-block">Trending</a>
           </li>
         </div>
         <div class="flex item-4 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
-          <i class="ri-history-fill text-3xl"></i>
+          <a href=""><i class="ri-history-fill text-3xl"></i></a>
           <li>
             <a href="#" class="text-sm font-semibold hidden lg:inline-block">Order History</a>
           </li>
         </div>
         <div class="flex item-5 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
-          <i class="ri-shopping-cart-2-fill text-3xl"></i>
+          <a href=""><i class="ri-shopping-cart-2-fill text-3xl"></i></a>
           <li>
             <a href="#" class="text-sm font-semibold hidden lg:inline-block">My Cart</a>
           </li>
         </div>
         <div class="flex item-6 items-center gap-3 cursor-pointer w-fit py-[2px] pl-2 pr-5 rounded-full hover:bg-gray-900">
           <% if (user.role !== "Admin") { %>
-            <i class="ri-account-circle-fill text-3xl"></i>
+            <a href=""><i class="ri-account-circle-fill text-3xl"></i></a>
             <li>
               <a href="#" class="text-sm font-semibold hidden lg:inline-block">My Personal Info</a>
             </li>
           <% } else { %>
-            <i class="ri-account-circle-fill text-3xl"></i>
+            <a href="/admin/adminpanel"><i class="ri-account-circle-fill text-3xl"></i></a>
             <li>
-              <a href="/admin/login" class="text-sm font-semibold hidden lg:inline-block ">Admin Panel</a>
+              <a href="/admin/adminpanel" class="text-sm font-semibold hidden lg:inline-block ">Admin Panel</a>
             </li>
           <% } %>
         </div>

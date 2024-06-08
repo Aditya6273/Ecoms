@@ -6,7 +6,7 @@ const {restrictUnauthorizedUser} = require("../controllers/userLoginSignupContro
 router.get("/shop",restrictUnauthorizedUser,async (req,res)=>{
 const user = await userModel.findOne({email:req.user.email})
 
-res.render("shop" ,{user})
+res.render("shop" ,{user,nav:true})
 })
 
 

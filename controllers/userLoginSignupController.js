@@ -82,7 +82,9 @@ const restrictUnauthorizedUser = (req, res, next) => {
   }
 
   try {
+    const {email } = req.body
     const decoded = jwt.verify(token, secret);
+    const user = userModel.findOne({email})
     req.user = decoded;
     next();
   } catch (error) {

@@ -1,3 +1,14 @@
+<style>
+    .show {
+    left: 0;
+    clip-path: circle(141.4% at 0 0);
+  }
+  .links {
+    transition: 0.8s all ease-in-out;
+  }
+</style>
+
+
 <div
 class="navigation md:bg-gray-900 bg-gray-950 h-[10%] w-full flex justify-between items-center md:px-20 px-5 z-40 text-white"
 >
@@ -11,22 +22,29 @@ class="navigation md:bg-gray-900 bg-gray-950 h-[10%] w-full flex justify-between
     <a href="" class="md:text-md text-lg font-semibold tracking-wide"
       >Home</a
     >
-    <a href="" class="md:text-md text-lg font-semibold tracking-wide focus"
+    <a href="/products/shop" class="md:text-md text-lg font-semibold tracking-wide focus"
       >Shop</a
     >
-    <a
-      href="/users/profile/<%= user._id %>"
-      class="md:text-md text-lg font-semibold tracking-wide"
-      >Profile</a
-    >
+    <% if (user.role === "User") { %>
+     
+      <a
+        href="/users/profile/<%= user._id %>"
+        class="md:text-md text-lg font-semibold tracking-wide"
+        >Profile</a
+      >
+    <% }else {%>
+      <a href="/users/profile/66606b906985e0867bee5bba" class="md:text-md text-lg font-semibold tracking-wide">Profile</a>
+  <%  } %>
   </ul>
   <div class="flex items-center h-full mt-2 gap-4">
     <i
       class="burger ri-menu-line md:hidden block text-3xl font-semibold top-0 relative"
     ></i>
+    <% if (nav === true) { %>
     <i
       class="burger2 ri-menu-fold-fill md:hidden block text-3xl font-semibold top-0 relative"
     ></i>
+    <% }else {} %>
   </div>
 </div>
 </div>
