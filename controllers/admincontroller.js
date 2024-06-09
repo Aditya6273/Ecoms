@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const adminModel = require("../models/adminModel");
 const secret = "adminadityashah";
-
+const productModel = require('../models/productModel')
 const adminSignup = async (req, res) => {
   const { name, email, username, password, contact } = req.body;
 
@@ -88,5 +88,34 @@ const restrictUnauthorizedAdmin = (req, res, next) => {
   }
 };
 
+const Addingproduct = async (req, res) => {
+  try {
+    const { sku, title, model_number, release_date, price, discount, discountedPrice, category } = req.body;
 
-module.exports = {adminSignup,adminLogin,restrictUnauthorizedAdmin}
+    if (!req.file) {
+      return res.status(400).send({ error: "Image file is required" });
+    }
+
+    const image = req.file.filename;
+
+    const product = await productModel.create({
+      sku,
+      title,
+      model_number,
+      release_date,
+      price,
+      discount,
+      discountedPrice,
+      category,
+      image,
+    });
+
+    res.status(201).redirect("/admin/adminpanel")
+  } catch (error) {
+    res.status(500).send(error.message);
+    console.log(error.message)
+  }
+};
+
+
+module.exports = {adminSignup,adminLogin,restrictUnauthorizedAdmin,Addingproduct}

@@ -3,69 +3,84 @@
   ::-webkit-scrollbar {
     display: none;
   }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>
 <div class="h-screen w-full bg-gray-900 text-white">
   <%- include('./layouts/navbar') %>
   <div class="h-full w-full flex">
     <%- include('./layouts/AdminNav') %>
     <div class="right w-[80%] h-full bg-slate-950">
-      <form class="p-10 w-full" action="/login" method="post">
-        <h1 class="text-3xl font-semibold">Add a Product</h1>
-        <div class="flex flex-col justify-start gap-3 items-start mt-3 w-full">
-          <label for="">Product Name :</label>
+      <form class="lg:p-10 p-3 w-full" action="/admin/addproduct" method="post" enctype="multipart/form-data">
+        <h1 class="text-xl md:text-3xl font-semibold">Add a Product</h1>
+        <div class="flex flex-col justify-start lg:gap-3 gap-4 items-start mt-3 w-full">
+          <label for="" class="text-sm lg:text-md">Product Name :</label>
           <input
-            class="w-1/2 bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
+            class="lg:w-1/2 w-full bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
             type="text"
-            name="Pname"
+            name="title"
             id=""
             placeholder="Enter Product Name"
           />
-          <label for="">Product SKU :</label>
+          <label for="" class="text-sm lg:text-md">Product SKU :</label>
           <input
-            class="w-1/2 bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
+            class="lg:w-1/2 w-full bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
             type="text"
-            name="Sku"
+            name="sku"
             id=""
             placeholder="Sku For Product"
           />
-          <label for="">Product Image (Background should Transparent )</label>
+          <label for="" class="text-sm lg:text-md">Product Category :</label>
           <input
-            class="w-1/2 bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
+            class="lg:w-1/2 w-full bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
+            type="text"
+            name="category"
+            id=""
+            placeholder="Category of Product"
+          />
+          <label for="" class="text-sm lg:text-md">Product Image (Background should Transparent )</label>
+          <input
+            class="lg:w-1/2 w-full bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
             type="file"
-            name="Pimage"
+            name="image"
             id=""
           />
           <label for="">Product Price :</label>
           <input
-            class="w-1/2 bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
+            class="lg:w-1/2 w-full bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
             type="number"
-            name="Pprice"
+            name="price"
             id=""
+            value=`&#8377;`
             placeholder="Enter a Product Price"
           />
-          <div class="w-full flex gap-2 gap-y-4 mt-5">
+          <div class="w-full flex lg:flex-row flex-col  gap-2 gap-y-4 mt-5">
             <div class="flex flex-col gap-y-2">
-              <label for="">Release Date :</label>
+              <label for="" class="text-sm lg:text-md">Release Date :</label>
               <input
-                class="w-[75%] bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
+                class="lg:w-[75%] w-full bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
                 type="text"
-                name="Prelease"
+                name="release_date"
                 id=""
                 placeholder="Release Date"
               />
             </div>
             <div class="flex flex-col gap-y-2">
-              <label for="">Model Number :</label>
+              <label for="" class="text-sm lg:text-md">Model Number :</label>
               <input
-                class="w-[75%] bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
+                class="lg:w-[75%] w-full bg-transparent border-gray-800 border-[1px] py-2 px-3 rounded-md outline-none"
                 type="text"
-                name="Pmodelnumber"
+                name="model_number"
                 id=""
                 placeholder="Model Number"
               />
             </div>
           </div>
-          <input class="w-64 py-2 px-3 text center bg-blue-600 hover:bg-blue-700 rounded-lg mt-5" type="submit" value="Add Product">
+          <input class="lg:w-64 w-fit py-2 px-3 text center bg-blue-600 hover:bg-blue-700 rounded-lg mt-5" type="submit" value="Add Product">
         </div>
       </form>
     </div>

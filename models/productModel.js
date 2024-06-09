@@ -12,21 +12,14 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
 
-  description: {
+  model_number: {
     type: String,
     required: true,
   },
 
-  manufacture_details: {
-    model_number: {
-      type: String,
-      required: true,
-    },
-
-    release_date: {
-      type: Date,
-      required: true,
-    },
+  release_date: {
+    type: Date,
+    required: true,
   },
 
   price: {
@@ -35,7 +28,7 @@ const productSchema = new mongoose.Schema({
   },
 
   discount: {
-    type: Number,
+    type: Boolean,
     default: 0,
   },
   discountedPrice: {
@@ -43,18 +36,24 @@ const productSchema = new mongoose.Schema({
     default: 0,
   },
 
-  categories: [
-    {
-      title: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  category: {
+    type: String,
+    required: true,
+  },
 
   image: {
     type: String,
     required: true,
   },
+  new:{
+    type:Boolean,
+    default:true
+    
+  },
+  newExpiresAt: {
+    type: Date,
+    default: () => Date.now() + 300000, // 5 minutes in milliseconds
+  },
+
 });
 module.exports = mongoose.model("Product", productSchema);

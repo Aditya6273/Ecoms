@@ -3,11 +3,12 @@ const router = express.Router();
 const productModel = require("../models/productModel");
 const adminModel = require("../models/adminModel");
 const userModel = require("../models/userModel")
-
+const upload = require("../config/multer-config")
 const {
   adminSignup,
   adminLogin,
   restrictUnauthorizedAdmin,
+  Addingproduct
 } = require("../controllers/admincontroller");
 const {
  
@@ -36,4 +37,5 @@ router.get("/login", async (req, res) => {
   res.render("adminlogin");
 });
 
+router.post ("/addproduct",restrictUnauthorizedAdmin,upload.single("image"),Addingproduct)
 module.exports = router;

@@ -102,51 +102,65 @@
   }
   input[type="range"]:focus::-ms-fill-upper {
     background: blue;}
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>
-<div class="bg-gray-950 h-screen w-0 right-0 fixed z-[100] filter-show">
-  <div class="h-[10%] w-full px-7 flex items-center">
+<div class="bg-gray-950 min-h-screen w-0 right-0 fixed z-[100] filter-show overflow-y-auto">
+  <div class="h-[10%] w-full px-7 flex items-center py-5 pb-0">
     <i class="cross ri-close-large-fill text-white text-xl font-semibold p-2 px-3 rounded-full bg-red-500 hover:bg-red-600 cursor-pointer"></i>
   </div>
-  <div class="h-[90%] w-full p-5">
-    <div class="price-filter">
-      <label for="range" class="text-white text-xl font-semibold ">Select Price Range:</label>
-      <input type="range" id="range" name="range" min="500" max="10000" step="100">
-      <div class="text-white">Selected Price: $ <span id="priceValue">500</span></div>
-    </div>
-    <div class="category mt-5 p-4 bg-gray-900 rounded-lg text-white">
-      <label class="text-white text-lg mb-2 block">Select Category:</label>
+  <div class="h-[90%] w-full p-5 pt-0">
+    <form action="/products/shop/filter" method="get">
+      <div class="price-filter">
+        <label for="minPrice" class="text-white text-sm font-semibold ">Min Price:</label>
+        <input class="w-full py-2 px-3 bg-transparent border-[1px] border-gray-900 outline-none text-white" type="number" id="minPrice" name="minPrice" min="0" max="1000000" step="10">
+      </div>
+      <div class="price-filter">
+        <label for="maxPrice" class="text-white text-sm font-semibold ">Max Price:</label>
+        <input class="w-full py-2 px-3 bg-transparent border-[1px] border-gray-900 outline-none text-white" type="number" id="maxPrice" name="maxPrice" min="0" max="1000000" step="10">
+      </div>
+      
+      <div class="category mt-2 p-4 bg-gray-900 rounded-lg text-white">
+        <label class="text-white text-lg mb-2 block">Select Category:</label>
+        <div class="flex">
+          <input type="radio" name="category" id="new" value="New" class="">
+          <label for="new" class="p-2 mb-1 rounded-lg cursor-pointer ">New</label>
+        </div>
       <div class="flex">
-        <input type="radio" name="category" id="mobile" value="Mobile" class="">
-        <label for="mobile" class="p-2 mb-1 rounded-lg cursor-pointer ">New</label>
+        <input type="radio" name="category" id="Discount" value="Discount" class="">
+        <label for="Discount" class="p-2 mb-1 rounded-lg cursor-pointer ">Discount</label>
+        </div>
+        </div>
+        <div class="category mt-5 p-4 bg-gray-900 rounded-lg text-white">
+          <div class="flex">
+            <input type="radio" name="category" id="Grocery" value="Grocery" class="">
+            <label for="Grocery" class="p-2 mb-1 rounded-lg cursor-pointer ">Grocery</label>
+          </div>
+        <div class="flex">
+          <input type="radio" name="category" id="mobile" value="Mobile" class="">
+          <label for="mobile" class="p-2 mb-1 rounded-lg cursor-pointer ">Mobile</label>
+        </div>
+        <div class="flex">
+          <input type="radio" name="category" id="boys-wear" value="Boys Wear" class="">
+          <label for="boys-wear" class="p-2 mb-1 rounded-lg cursor-pointer ">Boys Wear</label>
+        </div>
+        <div class="flex">
+          <input type="radio" name="category" id="girls-wear" value="Girls Wear" class="">
+          <label for="girls-wear" class="p-2 mb-1 rounded-lg cursor-pointer ">Girls Wear</label>
+        </div>
+        <div class="flex items-center">
+          <input type="radio" name="category" id="computers" value="Computers" class="">
+          <label for="computers" class="p-2 mb-1 rounded-lg cursor-pointer ">Computers</label>
+        </div>
       </div>
-      <div class="flex">
-        <input type="radio" name="category" id="mobile" value="Mobile" class="">
-        <label for="mobile" class="p-2 mb-1 rounded-lg cursor-pointer ">Sale</label>
-      </div>
-   
-  </div>
-    <div class="category mt-5 p-4 bg-gray-900 rounded-lg text-white">
-      <label class="text-white text-lg mb-2 block">Select Category:</label>
-      <div class="flex">
-        <input type="radio" name="category" id="mobile" value="Mobile" class="">
-        <label for="mobile" class="p-2 mb-1 rounded-lg cursor-pointer ">Mobile</label>
-      </div>
-      <div class="flex">
-        <input type="radio" name="category" id="boys-wear" value="Boys Wear" class="">
-        <label for="boys-wear" class="p-2 mb-1 rounded-lg cursor-pointer ">Boys Wear</label>
-      </div>
-      <div class="flex">
-        <input type="radio" name="category" id="girls-wear" value="Girls Wear" class="">
-        <label for="girls-wear" class="p-2 mb-1 rounded-lg cursor-pointer ">Girls Wear</label>
-      </div>
-      <div class="flex items-center">
-        <input type="radio" name="category" id="computers" value="Computers" class="">
-        <label for="computers" class="p-2 mb-1 rounded-lg cursor-pointer ">Computers</label>
-      </div>
-  </div>
-  <div class="apply-btn text-center text-white h-auto w-full mt-5">
-    <a href="" class="px-3 w-full text-center py-2 bg-green-500 block rounded-md hover:bg-green-600">Apply Changes</a>
-  </div>
+    <button type="submit" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 mt-3 px-4 rounded w-full text-center">Filter</button>
+     
+      
+    </form>
 </div>
 
   </div>
@@ -204,38 +218,41 @@
         <div
           class="cards h-full w-full flex flex-wrap lg:gap-x-10 gap-x-4 gap-y-5"
         >
+        <% products.forEach(product => { %>
           <div
-            class="card h-[22rem] xl:w-60 md:w-56 w-full bg-gray-800 rounded-md overflow-hidden px-2 pt-2 relative"
-          >
-            <div class="img-holder h-44 w-full overflow-hidden flex rounded">
-              <img
-                src="/assets/images/product-2.png"
-                class="h-44 w-full bg-white object-contain"
-                alt=""
-              />
-            </div>
-            <div class="product-name w-full p-1 pb-0">
-              <h1 class="text-lg font-semibold">Fresh Red Tomatoes</h1>
-            </div>
-            <div class="product-price w-full px-1 pb-0">
-              <h1 class="font-semibold">Price : $30</h1>
-            </div>
-            <div
-              class="product-add-to-cart w-full p-2 bg-blue-600 hover:bg-blue-700 text-center relative my-2 rounded cursr-pointer"
-            >
-              <h1>Add to Cart</h1>
-            </div>
-            <div
-              class="product-add-to-cart w-full p-2 bg-green-700 hover:bg-green-800 text-center relative rounded cursor-pointer"
-            >
-              <h1>Buy Now</h1>
-            </div>
+          class="card h-[22rem] xl:w-60 md:w-56 w-full bg-gray-800 rounded-md overflow-hidden px-2 pt-2 relative"
+        >
+          <div class="img-holder h-44 w-full overflow-hidden flex rounded">
+            <img
+              src="/assets/uploads/<%= product.image %>"
+              class="h-44 w-full bg-white object-contain"
+              alt=""
+            />
           </div>
+          <div class="product-name w-full p-1 pb-0">
+            <h1 class="text-lg font-semibold"><%= product.title %></h1>
+          </div>
+          <div class="product-price w-full px-1 pb-0">
+            <h1 class="font-semibold">Price : ₹<%= product.price  %></h1>
+          </div>
+          <div
+            class="product-add-to-cart w-full p-2 bg-blue-600 hover:bg-blue-700 text-center relative my-2 rounded cursr-pointer"
+          >
+            <h1>Add to Cart</h1>
+          </div>
+          <div
+            class="product-add-to-cart w-full p-2 bg-green-700 hover:bg-green-800 text-center relative rounded cursor-pointer"
+          >
+            <h1>Buy Now</h1>
+          </div>
+        </div>
+        <% }) %>
        
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <%- include('./layouts/footer') %>
